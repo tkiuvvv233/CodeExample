@@ -21,7 +21,7 @@ public interface UserService {
 
     Boolean updateUser(UserEntity user);
 
-//    Boolean updateUsers(List<UserEntity> users);
+    Boolean updateUsers(List<UserEntity> users);
 
     Boolean deleteUserById(String Id);
 

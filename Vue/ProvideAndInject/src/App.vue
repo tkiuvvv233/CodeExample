@@ -1,8 +1,9 @@
 <script lang="ts">
-import { computed } from '@vue/reactivity';
+import {computed} from '@vue/reactivity';
 import ShowData from './components/ShowData.vue';
+
 export default ({
-  components: { ShowData },
+  components: {ShowData},
   data() {
     return {
       title: "",
@@ -11,14 +12,17 @@ export default ({
   },
   mounted() {
     this.axios({
-      method: 'post',
-      url: 'http://localhost:8000/',
-      data: "token=swpu",
+      method: 'GET',
+      url: 'http://localhost:8080/User/findUserAll'
     }).then((response) => {
       if (response.status == 200) {
-        if (response.data.status == 200) {
+        if (response.data.code == 200) {
           this.DataList = response.data.data
+        } else {
+          this.$message({message: response.data.msg, type: "error"})
         }
+      } else {
+        this.$message({message: "服务器错误!", type: "error"})
       }
     })
   },
@@ -43,12 +47,12 @@ export default ({
 
 <template>
   <el-menu mode="horizontal">
-    <el-image style="width: 40px; height: 40px; margin: 10px; margin-left: 30px" src='src/assets/logo.png' :fit="fit" />
+    <el-image style="width: 40px; height: 40px; margin: 10px; margin-left: 30px" src='src/assets/logo.png' :fit="fit"/>
     <h3 style="margin-left: 30px">Web前端测试项目</h3>
     <el-menu-item style="margin-left: 70%">显示数据测试</el-menu-item>
   </el-menu>
   <div class="boxWapper">
-    <ShowData class="showdata" />
+    <ShowData class="showdata"/>
   </div>
 </template>
 

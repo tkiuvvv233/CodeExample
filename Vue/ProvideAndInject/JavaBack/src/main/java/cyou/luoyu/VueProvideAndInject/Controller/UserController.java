@@ -64,14 +64,14 @@ public class UserController {
         }
     }
 
-//    @PostMapping("/updateUsers")
-//    BaseResponse updateUsers(@RequestBody List<UserEntity> users) {
-//        if (userService.updateUsers(users)) {
-//            return ResponseBuilder.makeSuccessAction();
-//        } else {
-//            return ResponseBuilder.makeAction(ResponseModel.Update_Error);
-//        }
-//    }
+    @PostMapping("/updateUsers")
+    BaseResponse updateUsers(@RequestBody List<UserEntity> users) {
+        if (userService.updateUsers(users)) {
+            return ResponseBuilder.makeSuccessAction();
+        } else {
+            return ResponseBuilder.makeAction(ResponseModel.Update_Error);
+        }
+    }
 
     @PostMapping("/deleteUserById")
     BaseResponse deleteUserById(@RequestParam("Id") String Id) {

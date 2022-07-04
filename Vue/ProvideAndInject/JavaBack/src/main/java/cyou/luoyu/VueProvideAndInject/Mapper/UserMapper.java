@@ -26,7 +26,7 @@ public interface UserMapper {
 
     Boolean updateUser(UserEntity user);
 
-//    Boolean updateUsers(List<UserEntity> users);
+    Boolean updateUsers(List<UserEntity> users);
 
     Boolean deleteUserById(String id);
 

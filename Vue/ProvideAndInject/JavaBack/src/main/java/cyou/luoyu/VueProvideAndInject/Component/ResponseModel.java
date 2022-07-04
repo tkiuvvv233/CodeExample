@@ -7,7 +7,7 @@ package cyou.luoyu.VueProvideAndInject.Component;
  * @date 2022/06/18
  */
 public enum ResponseModel {
-    Success(200, "成功"),
+    Success(200, "success"),
     Insert_Error(401, "插入数据失败"),
     Update_Error(402, "更新数据失败"),
     Delete_Error(402, "删除数据失败"),

@@ -51,10 +51,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.updateUser(user);
     }
 
-//    @Override
-//    public Boolean updateUsers(List<UserEntity> users) {
-//        return userMapper.updateUsers(users);
-//    }
+    @Override
+    public Boolean updateUsers(List<UserEntity> users) {
+        return userMapper.updateUsers(users);
+    }
 
     @Override
     public Boolean deleteUserById(String Id) {

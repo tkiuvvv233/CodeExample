@@ -99,23 +99,23 @@
     </update>
 
     <!-- 批量修改学生信息表信息  有bug-->
-<!--    <update id="updateUsers" parameterType="list">-->
-<!--        <foreach collection="list" index="index" item="item" separator=";">-->
-<!--            UPDATE `user`-->
-<!--            <set>-->
-<!--                <if test="item.stuName != null">-->
-<!--                    stuName = #{item.stuName},-->
-<!--                </if>-->
-<!--                <if test="item.ifOut != null">-->
-<!--                    ifOut = #{item.ifOut},-->
-<!--                </if>-->
-<!--                <if test="item.sex != null">-->
-<!--                    sex = #{item.sex}-->
-<!--                </if>-->
-<!--            </set>-->
-<!--            WHERE id = #{item.id}-->
-<!--        </foreach>-->
-<!--    </update>-->
+    <update id="updateUsers" parameterType="list">
+        <foreach collection="list" index="index" item="item" separator=";">
+            UPDATE `user`
+            <set>
+                <if test="item.stuName != null">
+                    stuName = #{item.stuName},
+                </if>
+                <if test="item.ifOut != null">
+                    ifOut = #{item.ifOut},
+                </if>
+                <if test="item.sex != null">
+                    sex = #{item.sex}
+                </if>
+            </set>
+            WHERE id = #{item.id}
+        </foreach>
+    </update>
 
     <!-- 根据主键删除学生信息表 -->
     <delete id="deleteUserById" parameterType="string">
